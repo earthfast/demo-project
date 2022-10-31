@@ -17,7 +17,7 @@ jobs:
           npm run build
 
       - name: Bundle release for Armada
-        uses: armada-network/armada-release-action@main
+        uses: armada-network/armada-release-action@with-outputs
         with:
           build_dir: build
           bundle_name: demo-project-${{ github.ref_name }}
