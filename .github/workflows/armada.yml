@@ -18,7 +18,13 @@ jobs:
 
       - name: Bundle release for Armada
         uses: armada-network/armada-release-action@with-outputs
+        id: armada
         with:
           build_dir: build
           bundle_name: demo-project-${{ github.ref_name }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Log the Armada bundle data
+        run: |
+          echo "Armada bundle url: ${{ steps.armada.outputs.bundle_url }}"
+          echo "Armada bundle checksum: ${{ steps.armada.outputs.checksum }}"
